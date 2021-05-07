@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouterLink Link renders correctly 1`] = `
+<a
+  className="test"
+  href="/user/23/name/25?locale=zh-CN"
+>
+  Facebook
+</a>
+`;
+
+exports[`RouterLink NavLink renders correctly 1`] = `
+<a
+  className="test"
+  href="/user/23/name/25?locale=zh-CN"
+>
+  Facebook
+</a>
+`;
+
+exports[`RouterLink Redirect renders correctly 1`] = `
+<a
+  className="test"
+  href="/user/23/name/25?locale=zh-CN"
+>
+  Facebook
+</a>
+`;

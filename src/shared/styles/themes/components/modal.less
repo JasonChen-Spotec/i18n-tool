@@ -1,0 +1,79 @@
+@import "../variables.less";
+
+:global {
+  .mp-modal {
+    &-confirm-warning &-confirm-body > .spotecicon,
+    &-confirm-confirm &-confirm-body > .spotecicon {
+      color: #faad14;
+    }
+
+    &-confirm-body > .spotecicon {
+      float: left;
+      width: 22px;
+      margin-right: 16px;
+    }
+
+    &-header {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &-content,
+    &-header {
+      border-radius: 0;
+    }
+
+    &-body {
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+
+    &-title {
+      color: @white;
+    }
+
+    &-close-x {
+      height: 47px;
+      line-height: 47px;
+    }
+
+    &-close-icon {
+      color: @white;
+      font-size: 20px;
+    }
+
+    &-footer {
+      padding-bottom: 30px;
+      text-align: center;
+      border-top: 0;
+
+      .mp-btn {
+        height: 28px;
+        padding: 2px 24px;
+        border-radius: 4px;
+
+        &:first-child {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+
+  .modal-form-footer {
+    margin-bottom: 6px;
+    padding-bottom: 0;
+    text-align: center;
+
+    :global {
+      .mp-btn {
+        height: 28px;
+        padding: 2px 24px;
+        border-radius: 4px;
+
+        &:first-child {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+}

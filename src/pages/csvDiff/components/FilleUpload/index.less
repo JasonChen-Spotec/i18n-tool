@@ -1,0 +1,95 @@
+
+:global {
+  .app-upload-container {
+    width: 130px;
+    height: 100px;
+    border-radius: 4px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.upload-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.pack-icon{
+  width: 48px;
+  height: 60px;
+  path:nth-of-type(1){
+    fill: #5acc9b;
+  }
+  path:nth-of-type(2){
+    fill: #fff;
+  }
+}
+
+.apk-icon-files{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .upload-file-name{
+    width: 85%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.upload-progress {
+  position: absolute !important;
+  top: 50%;
+  left: 0;
+  z-index: 4;
+  transform: translateY(-34%);
+
+  :global {
+    .mp-progress-text {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 34;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: #000;
+  cursor: pointer;
+  opacity: .6;
+
+  :global {
+    .spotecicon {
+      width: 15px;
+      height: 15px;
+      color: #fff;
+    }
+  }
+}

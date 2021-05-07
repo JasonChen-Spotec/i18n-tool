@@ -1,0 +1,141 @@
+@import "@/shared/styles/themes/variables.less";
+@import "@/shared/styles/responsive/index";
+
+.login {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.server-error {
+  color: @color_F78168;
+}
+
+.login-banner{
+  width: auto;
+  max-width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  .login-banner--img{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+  .white-logo-img{
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    width: 16%;
+    min-width: 271px;
+    transform: translateX(-50%);
+  }
+  .black-logo-img{
+    display: none;
+  }
+}
+
+.form-container{
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  width: 18%;
+  min-width: 300px;
+  transform: translateX(-50%);
+}
+
+.form-container form{
+  width: 100%;
+
+  :global {
+    .mp-form-item {
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    .mp-form-item-label > label {
+      color: @color_242424;
+      font-size: 16px;
+    }
+    .mp-input-affix-wrapper {
+      color: @color_CACACA;
+
+      &.mp-input-affix-wrapper-focused {
+
+        .spotecicon{
+          color: @primary-color;
+        }
+
+        .mp-input-suffix {
+          color: @primary-color;
+        }
+      }
+
+      .mp-input-prefix {
+        margin-right: 10px;
+      }
+
+      input {
+        color: @black;
+      }
+    }
+  }
+}
+
+.form-container .gradients-button{
+  width: 100%;
+  margin-top: 6%;
+  color: @white;
+  background-image: linear-gradient(to right, @gradients-button-color-1 , @gradients-button-color-2);
+  &:hover,
+  &:focus,
+  &:active{
+    color: @white;
+    background-image: linear-gradient(to right, @gradients-button-color-1 , @gradients-button-color-2);
+  }
+}
+
+@media @media-query-small {
+  .login-banner{
+    .black-logo-img{
+      position: absolute;
+      top: 18%;
+      left: 50%;
+      display: block;
+      width: 50%;
+      transform: translateX(-50%);
+    }
+    .white-logo-img{
+      display: none;
+    }
+    .login-banner--img{
+      display: none;
+    }
+  }
+
+  .form-container{
+    position: absolute;
+    top: 34%;
+    width: 70%;
+  }
+}
+
+@media @media-query-medium {
+  .login-banner{
+    .white-logo-img{
+      position: absolute;
+      top: 16%;
+      left: 50%;
+      width: 35%;
+      transform: translateX(-50%);
+    }
+    .black-logo-img{
+      display: none;
+    }
+  }
+  .form-container{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

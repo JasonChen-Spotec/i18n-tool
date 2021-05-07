@@ -1,0 +1,18 @@
+# @format
+
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: install
+        run: npm install
+
+      - name: eslint
+        run: npm run eslint
+      - name: stylelint
+        run: npm run stylelint
