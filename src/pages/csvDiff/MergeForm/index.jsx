@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button } from 'antd';
 import find from 'lodash/find';
-import { toCSV } from '@/api';
+import * as API from '@/api';
 import FilleUpload from '../components/FilleUpload';
 
 const { Parser } = require('json2csv');
@@ -28,8 +28,6 @@ const MergeForm = () => {
           translatedKey === item.key && item.zhValue === zhValue
         ));
 
-        console.log('translateItem', translateItem)
-
       if (translateItem) {
         nextTranslateList.push({ ...translateItem });
       } else {
@@ -37,7 +35,7 @@ const MergeForm = () => {
       }
     });
 
-    const json2csvParser = new Parser({ quote: '' });
+    const json2csvParser = new Parser();
     const csv = json2csvParser.parse(nextTranslateList);
 
     const link = document.createElement('a');
@@ -51,14 +49,10 @@ const MergeForm = () => {
     <div>
       <span>local translate file csv</span>
       <FilleUpload
-        action="http://localhost:3000/parseData"
+        action={API.parseCSVData}
         onSuccess={onHistorySuccess}
       />
       <span>new translate file csv</span>
-      <FilleUpload
-        action="http://localhost:3000/parseData"
-        onSuccess={onNewSuccess}
-      />
       <div>
         说明： 两个文件只有key, zhValue 全部相等才不会被导入
       </div>

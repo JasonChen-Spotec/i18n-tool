@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button } from 'antd';
 import find from 'lodash/find';
-import { toCSV } from '@/api';
+import * as API from '@/api';
 import FilleUpload from '../components/FilleUpload';
 
 const { Parser } = require('json2csv');
@@ -32,7 +32,7 @@ const ExportForm = () => {
       }
     });
 
-    const json2csvParser = new Parser({ quote: '' });
+    const json2csvParser = new Parser();
     const csv = json2csvParser.parse(noTranslateList);
 
     const link = document.createElement('a');
@@ -40,20 +40,18 @@ const ExportForm = () => {
     const blob = new Blob([csv], { type: 'text/csv' });
     link.href = URL.createObjectURL(blob);
     link.click();
-    toCSV({ data: { list: noTranslateList } });
-    console.log('noTranslateList', noTranslateList);
   };
 
   return (
     <div>
       <span>最新代码翻译文件csv</span>
       <FilleUpload
-        action="http://localhost:3000/parseData"
+        action={API.parseCSVData}
         onSuccess={onNewSuccess}
       />
       <span>已经merge翻译文件csv</span>
       <FilleUpload
-        action="http://localhost:3000/parseData"
+        action={API.parseCSVData}
         onSuccess={onHistorySuccess}
       />
 

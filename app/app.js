@@ -1,3 +1,4 @@
+const fs = require('fs');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -6,6 +7,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const multer = require('multer');
 const csvtojsonV2 = require('csvtojson');
+const propertiesToJSON = require('properties-to-json');
 
 function resolveCwd(...args) {
   args.unshift(process.cwd());
@@ -48,16 +50,22 @@ const extractCsv = path => new Promise((resolve, reject) => {
     });
 });
 
-app.post('/parseData', upload.single('csv'), async(req, res) => {
+app.post('/parseCSVData', upload.single('csv'), async(req, res) => {
   const list = await extractCsv(req.files[0].path);
   const resultList = list.map(({ key, zhValue, enValue }) => ({ key, zhValue, enValue }));
   res.json({ body: { list: resultList }, header: { code: '0000' } });
 });
 
-app.post('/toCSV', (req, res) => {
-  console.log('req', req.body);
+app.post('/parsePropertiesData', upload.single('Properties'), async(req, res) => {
+  const data = await new Promise(resolve => {
+    fs.readFile(req.files[0].path, { encoding: 'utf-8' }, (err, data) => {
+      if (!err) {
+        resolve(propertiesToJSON(data));
+      }
+    });
+  });
 
-  res.json({ body: { list: [] }, header: { code: '0000' } });
+  res.json({ body: { data }, header: { code: '0000' } });
 });
 
 // catch 404 and forward to error handler
