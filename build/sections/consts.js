@@ -10,18 +10,11 @@ const envEnum = {
 const baseAPiMap = {
   static: 'http://localhost:4001',
   development: 'http://192.168.0.102:3000',
-  production: 'http://27.102.113.188:10000'
-};
-
-const mobileSiteAddressMap = {
-  static: 'http://localhost:6001',
-  development: 'http://192.168.0.126:7010',
-  production: 'http://h5.mp.testmego.com'
+  production: 'http://192.168.0.126:3000'
 };
 
 export {
   prefixCls,
   baseAPiMap,
-  envEnum,
-  mobileSiteAddressMap
+  envEnum
 }

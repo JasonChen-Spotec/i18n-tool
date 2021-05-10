@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 // import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import resolveCwd from './resolveCwd';
-import { envEnum, prefixCls, baseAPiMap, mobileSiteAddressMap } from './consts';
+import { envEnum, prefixCls, baseAPiMap } from './consts';
 
 const env = process.env.NODE_ENV || envEnum.development;
 
@@ -20,7 +20,6 @@ const definitions = {
   __TESTING__: env === envEnum.test,
   __PREFIX_CLS__: JSON.stringify(prefixCls),
   __BASE_URL__: JSON.stringify(baseAPiMap[apiEnv]),
-  __MOBILE_SITE_ADDRESS__: JSON.stringify(mobileSiteAddressMap[apiEnv]),
 };
 
 const webpackBar = new WebpackBar();
