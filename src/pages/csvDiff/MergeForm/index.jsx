@@ -53,6 +53,10 @@ const MergeForm = () => {
         onSuccess={onHistorySuccess}
       />
       <span>new translate file csv</span>
+      <FilleUpload
+        action={API.parseCSVData}
+        onSuccess={onNewSuccess}
+      />
       <div>
         说明： 两个文件只有key, zhValue 全部相等才不会被导入
       </div>

@@ -28,9 +28,6 @@ const upload = multer({ storage });
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
 app.use(upload.any()); // 任何
 
 app.use(cors());
@@ -40,7 +37,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 const extractCsv = path => new Promise((resolve, reject) => {
   csvtojsonV2()

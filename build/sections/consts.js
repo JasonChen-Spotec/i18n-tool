@@ -9,7 +9,7 @@ const envEnum = {
 
 const baseAPiMap = {
   static: 'http://localhost:4001',
-  development: 'http://192.168.0.102:3000',
+  development: 'http://localhost:7820',
   production: 'http://192.168.0.126:7820'
 };
 
